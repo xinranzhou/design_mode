@@ -12,7 +12,49 @@
 ### 组合相比继承有哪些优势
 
 实际上，可以使用组合，接口，委托三个技术手段一块来实现继承能力。
+
+```
+
 下面是以TpyeScript举例
+基于抽象类继承
+```
+abstract class Flyable {
+    abstract fly(): any
+}
+
+abstract class EggTweetlayable {
+    constructor(parameters: any) {
+
+    }
+    fly() {
+        console.log('fly')
+    }
+    abstract layEgg(): any
+    abstract tweet(): any
+}
+
+
+// 鸵鸟类
+class Ostrich extends EggTweetlayable {
+    constructor(arg: any) {
+        super(arg)
+    }
+    public layEgg(): void {
+        console.log('layEgg') // 实现layEgg
+    }
+
+    public tweet(): void {
+        console.log('tweet') // 实现tweet
+    }
+}
+const ostrich = new Ostrich('')
+
+ostrich.layEgg()
+ostrich.fly()
+```
+
+利用组合实现
+
 ```
 // 定义接口
 interface Flyable {
